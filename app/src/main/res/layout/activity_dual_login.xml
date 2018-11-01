@@ -33,6 +33,7 @@
         android:layout_centerVertical="true"
         android:layout_marginTop="284dp"
         android:layout_marginEnd="0dp"
+       android:layout_marginRight="0dp"
         android:background="@color/bg_main"
         android:text="Brand Login(Work in Progress)"
         tools:layout_editor_absoluteX="30dp"

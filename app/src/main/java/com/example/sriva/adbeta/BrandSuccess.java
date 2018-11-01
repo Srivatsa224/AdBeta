@@ -1,5 +1,7 @@
 package com.example.sriva.adbeta;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,9 +11,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class BrandSuccess extends AppCompatActivity implements View.OnClickListener {
     //firebase auth object
     private FirebaseAuth firebaseAuth;
 
@@ -19,12 +19,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView textViewUserEmail;
     private Button buttonLogout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-
+        setContentView(R.layout.activity_brand_success);
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -34,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             //closing this activity
             finish();
             //starting login activity
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, DealerLogin.class));
         }
 
         //getting current user
@@ -60,7 +58,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             //closing activity
             finish();
             //starting login activity
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, DealerLogin.class));
         }
     }
 }
+
+
+

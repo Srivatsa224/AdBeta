@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class DealerLogin extends AppCompatActivity implements View.OnClickListener {
 
 
     //defining views
@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.dealer_login);
 
         //getting firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //close this activity
             finish();
             //opening profile activity
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), DealerSuccess.class));
         }
 
         //initializing views
@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if(task.isSuccessful()){
                             //start the profile activity
                             finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            startActivity(new Intent(getApplicationContext(), DealerSuccess.class));
                         }
                     }
                 });
@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(view == textViewSignup){
             finish();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, DealerReg.class));
         }
     }
 }

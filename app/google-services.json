@@ -15,14 +15,19 @@
       },
       "oauth_client": [
         {
+          "client_id": "561580272247-foa46nc10jc6mn568ernkc81fk4pr382.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sriva.adbeta",
+            "certificate_hash": "d5ab7eb346a42695126035c992bcbea57cc65ad9"
+          }
+        },
+        {
           "client_id": "561580272247-i4s2886qofg8r3ulesef74l8bijpg0qj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
-        {
-          "current_key": "AIzaSyBYl7AG_wDtoVmiCRqffHZ0rXJBok5kTu4"
-        },
         {
           "current_key": "AIzaSyBYl7AG_wDtoVmiCRqffHZ0rXJBok5kTu4"
         }
@@ -32,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561580272247-i4s2886qofg8r3ulesef74l8bijpg0qj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

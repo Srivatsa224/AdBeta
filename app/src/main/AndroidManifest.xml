@@ -18,9 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".DealerLogin" />
+        <activity android:name=".DealerSuccess" />
+        <activity android:name=".DealerReg" />
+        <activity android:name=".BrandLogin" />
+        <activity android:name=".BrandReg" />
+        <activity android:name=".BrandSuccess" />
+        <activity android:name=".HoardingUpload"></activity>
     </application>
 
 </manifest>

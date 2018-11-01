@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ProfileActivity">
+    tools:context=".DealerSuccess">
 
 
     <LinearLayout
@@ -27,11 +27,18 @@
             android:layout_gravity="center_horizontal" />
 
         <Button
+            android:id="@+id/buttonLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:id="@+id/buttonLogout"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:text="Logout" />
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload a new Hording details" />
+
     </LinearLayout>
 </RelativeLayout>
 

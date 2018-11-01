@@ -14,10 +14,19 @@ public class DualLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_login);
         b1=(Button)findViewById(R.id.buttonSignup);
+        b2=(Button)findViewById(R.id.buttonSignup2);
+        // Setting onClick Event for Dealer Button
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(DualLogin.this, MainActivity.class);
+                Intent i=new Intent(DualLogin.this, DealerReg.class);
+                startActivity(i);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(DualLogin.this, BrandReg.class);
                 startActivity(i);
             }
         });

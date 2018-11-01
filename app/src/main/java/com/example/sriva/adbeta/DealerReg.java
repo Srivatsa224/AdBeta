@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class DealerReg extends AppCompatActivity implements View.OnClickListener {
 
     //defining view objects
     private EditText editTextEmail;
@@ -35,19 +35,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.dealer_reg);
 
         //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
 
         //if getCurrentUser does not returns null
         if(firebaseAuth.getCurrentUser() != null){
-            //that means user is already logged in
-            //so close this activity
+            //User is already logged in so close this activity
             finish();
 
             //and open profile activity
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), DealerSuccess.class));
         }
 
         //initializing views
@@ -95,10 +94,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         //checking if success
                         if(task.isSuccessful()){
                             finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            startActivity(new Intent(getApplicationContext(), DealerSuccess.class));
                         }else{
                             //display some message here
-                            Toast.makeText(MainActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(DealerReg.this,"Registration Error",Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
                     }
@@ -115,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(view == textViewSignin){
             //open login activity when user taps on the already registered textview
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, DealerLogin.class));
         }
 
     }
