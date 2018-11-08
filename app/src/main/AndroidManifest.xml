@@ -24,7 +24,8 @@
         <activity android:name=".BrandLogin" />
         <activity android:name=".BrandReg" />
         <activity android:name=".BrandSuccess" />
-        <activity android:name=".HoardingUpload"></activity>
+        <activity android:name=".HoardingUpload" />
+        <activity android:name=".ImagesActivity"></activity>
     </application>
 
 </manifest>

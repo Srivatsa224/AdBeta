@@ -38,4 +38,3 @@ dependencies {
 
 //add the following line
 apply plugin: 'com.google.gms.google-services'
-
