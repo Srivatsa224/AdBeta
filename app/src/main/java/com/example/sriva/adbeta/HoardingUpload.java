@@ -27,9 +27,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
-import com.squareup.picasso.Picasso;
 public class HoardingUpload extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
 
@@ -37,6 +35,9 @@ public class HoardingUpload extends AppCompatActivity {
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
     private EditText mEditTextFileName;
+    private EditText mSize;
+    private EditText mPrice;
+    private EditText mMaplink;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
@@ -55,9 +56,12 @@ public class HoardingUpload extends AppCompatActivity {
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
-        mEditTextFileName = findViewById(R.id.edit_text_file_name);
+        mEditTextFileName = findViewById(R.id.et_loc);
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
+        mSize=findViewById(R.id.et_size);
+        mPrice=findViewById(R.id.et_price);
+        mMaplink=findViewById(R.id.et_maplink);
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
@@ -136,8 +140,11 @@ public class HoardingUpload extends AppCompatActivity {
                             downloadUrl.addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    Log.d("SOMU", "uploading done uri "+ uri.toString());
+                                   // Log.d("SOMU", "uploading done uri "+ uri.toString());
                                     Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
+                                            mSize.getText().toString().trim(),
+                                            mPrice.getText().toString().trim(),
+                                            mMaplink.getText().toString().trim(),
                                             uri.toString());
                                     String uploadId = mDatabaseRef.push().getKey();
                                     mDatabaseRef.child(uploadId).setValue(upload);

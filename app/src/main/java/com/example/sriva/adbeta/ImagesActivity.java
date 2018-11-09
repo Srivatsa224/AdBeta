@@ -63,8 +63,8 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
-                    Log.d("SOMU","upload url is "+upload.getImageUrl());
-                    Log.d("SOMU","name is "+upload.getName());
+                 //   Log.d("SOMU","upload url is "+upload.getImageUrl());
+                 //   Log.d("SOMU","name is "+upload.getName());
                     //upload.setImageUrl(postSnapshot.getKey());
                     mUploads.add(upload);
                 }
