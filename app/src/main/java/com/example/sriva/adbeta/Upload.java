@@ -21,6 +21,7 @@ public class Upload {
         mName = name;
         mSize=size;
         mPrice=price;
+        mMaplink=maplink;
         mImageUrl = imageUrl;
     }
 

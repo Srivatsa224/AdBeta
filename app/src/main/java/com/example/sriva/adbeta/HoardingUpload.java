@@ -144,8 +144,7 @@ public class HoardingUpload extends AppCompatActivity {
                                     Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
                                             mSize.getText().toString().trim(),
                                             mPrice.getText().toString().trim(),
-                                            mMaplink.getText().toString().trim(),
-                                            uri.toString());
+                                            mMaplink.getText().toString().trim(),uri.toString());
                                     String uploadId = mDatabaseRef.push().getKey();
                                     mDatabaseRef.child(uploadId).setValue(upload);
                                 }

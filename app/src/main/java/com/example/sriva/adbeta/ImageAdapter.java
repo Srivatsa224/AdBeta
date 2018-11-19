@@ -1,12 +1,15 @@
 package com.example.sriva.adbeta;
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,21 +37,38 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
-        holder.textViewName.setText(uploadCurrent.getName());
-        holder.tvSize.setText(uploadCurrent.getSize());
-        holder.tvPrice.setText(uploadCurrent.getPrice());
-        holder.tvMaplink.setText(uploadCurrent.getMaplink());
-        Picasso.get()
-                .load(uploadCurrent.getImageUrl())
-                .placeholder(R.mipmap.ic_launcher)
-                .fit()
-                .centerCrop()
-                .into(holder.imageView);
+        if (uploadCurrent.getName() != null)
+            holder.textViewName.setText(uploadCurrent.getName());
+        if (uploadCurrent.getSize() != null)
+            holder.tvSize.setText(uploadCurrent.getSize());
+        if (uploadCurrent.getPrice() != null)
+            holder.tvPrice.setText(uploadCurrent.getPrice());
+        if (uploadCurrent.getMaplink() != null)
+            holder.tvMaplink.setText(uploadCurrent.getMaplink());
+        if (uploadCurrent.getImageUrl() != null)
+            Picasso.get()
+                    .load(uploadCurrent.getImageUrl())
+                    .placeholder(R.mipmap.ic_launcher)
+                    .fit()
+                    .centerCrop()
+                    .into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
         return mUploads.size();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+
+        void onWhatEverClick(int position);
+
+        void onDeleteClick(int position);
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
@@ -57,6 +77,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         public TextView tvSize;
         public TextView tvPrice;
         public TextView tvMaplink;
+        public Button bookNow;
         public ImageView imageView;
 
 
@@ -64,9 +85,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             super(itemView);
 
             textViewName = itemView.findViewById(R.id.text_view_name);
-            tvSize=itemView.findViewById(R.id.et_size);
-            tvPrice=itemView.findViewById(R.id.et_price);
-            tvMaplink=itemView.findViewById(R.id.et_maplink);
+            tvSize = itemView.findViewById(R.id.text_view_size);
+            tvPrice = itemView.findViewById(R.id.text_view_price);
+            tvMaplink = itemView.findViewById(R.id.text_view_map);
+            bookNow = itemView.findViewById(R.id.button_book);
             imageView = itemView.findViewById(R.id.image_view_upload);
 
             itemView.setOnClickListener(this);
@@ -111,17 +133,5 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             }
             return false;
         }
-    }
-
-    public interface OnItemClickListener {
-        void onItemClick(int position);
-
-        void onWhatEverClick(int position);
-
-        void onDeleteClick(int position);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        mListener = listener;
     }
 }
