@@ -1,8 +1,9 @@
 package com.example.sriva.adbeta;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,7 +31,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.image_item, parent, false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.ad_list_item, parent, false);
         return new ImageViewHolder(v);
     }
 
@@ -43,8 +44,19 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             holder.tvSize.setText(uploadCurrent.getSize());
         if (uploadCurrent.getPrice() != null)
             holder.tvPrice.setText(uploadCurrent.getPrice());
-        if (uploadCurrent.getMaplink() != null)
+        if (uploadCurrent.getMaplink() != null){
             holder.tvMaplink.setText(uploadCurrent.getMaplink());
+            final String url = uploadCurrent.getMaplink();
+            holder.tvMaplink.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(url));
+                    mContext.startActivity(i);
+                }
+            });
+           // String message = "Hi, This is ad at "+uploadCurrent.getName() +" of size "+uploadCurrent.getSize() + "";
+        }
         if (uploadCurrent.getImageUrl() != null)
             Picasso.get()
                     .load(uploadCurrent.getImageUrl())
@@ -84,12 +96,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         public ImageViewHolder(View itemView) {
             super(itemView);
 
-            textViewName = itemView.findViewById(R.id.text_view_name);
-            tvSize = itemView.findViewById(R.id.text_view_size);
-            tvPrice = itemView.findViewById(R.id.text_view_price);
-            tvMaplink = itemView.findViewById(R.id.text_view_map);
-            bookNow = itemView.findViewById(R.id.button_book);
-            imageView = itemView.findViewById(R.id.image_view_upload);
+            textViewName = itemView.findViewById(R.id.textViewLocation);
+            tvSize = itemView.findViewById(R.id.textViewSize);
+            tvPrice = itemView.findViewById(R.id.textViewPrice);
+            tvMaplink = itemView.findViewById(R.id.textViewMapLink);
+            bookNow = itemView.findViewById(R.id.buttonBook);
+            imageView = itemView.findViewById(R.id.imageViewAd);
 
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
