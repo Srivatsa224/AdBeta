@@ -24,6 +24,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     private List<Upload> mUploads;
     private OnItemClickListener mListener;
 
+
     public ImageAdapter(Context context, List<Upload> uploads) {
         mContext = context;
         mUploads = uploads;
@@ -55,7 +56,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                     mContext.startActivity(i);
                 }
             });
-           // String message = "Hi, This is ad at "+uploadCurrent.getName() +" of size "+uploadCurrent.getSize() + "";
+
         }
         if (uploadCurrent.getImageUrl() != null)
             Picasso.get()
@@ -64,6 +65,28 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                     .fit()
                     .centerCrop()
                     .into(holder.imageView);
+
+
+        final String message = "Hi, We want to book this Ad Space at "+uploadCurrent.getName() +" of size "+uploadCurrent.getSize() +
+                "Which you have listed for "+uploadCurrent.getPrice() + "laocted at "+ uploadCurrent.getMaplink() + " this location." +
+                "    Please Share the payment details" + ",Thank You.";
+        final String emailaddress="srivatsa224@gmail.com";
+        final String img= uploadCurrent.getImageUrl();
+
+        holder.bookNow.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.setType("plain/text");
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "srivatsa224@gemail.com" });
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Ad Booking");
+            emailIntent.putExtra(Intent.EXTRA_TEXT, message);
+            emailIntent.setType(img);
+            mContext.startActivity(emailIntent);
+
+
+        }
+    });
     }
 
     @Override

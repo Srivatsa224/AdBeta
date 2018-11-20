@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,6 +42,7 @@ public class HoardingUpload extends AppCompatActivity {
     private EditText mMaplink;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
+    private AutoCompleteTextView mActv;
 
     private Uri mImageUri;
 
@@ -47,6 +50,8 @@ public class HoardingUpload extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
 
     private StorageTask mUploadTask;
+    String[] loc = { "Mysuru","Bengaluru","Tumkur","Belgam","Mangaluru"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +67,7 @@ public class HoardingUpload extends AppCompatActivity {
         mSize=findViewById(R.id.et_size);
         mPrice=findViewById(R.id.et_price);
         mMaplink=findViewById(R.id.et_maplink);
-
+        mActv=(findViewById(R.id.autocom));
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
@@ -90,7 +95,16 @@ public class HoardingUpload extends AppCompatActivity {
                 openImagesActivity();
             }
         });
+        mActv = (AutoCompleteTextView)
+                findViewById(R.id.autocom);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (this,android.R.layout.select_dialog_item, loc);
+
+        mActv.setThreshold(1);
+        mActv.setAdapter(adapter);
     }
+
 
     private void openFileChooser() {
         Intent intent = new Intent();
