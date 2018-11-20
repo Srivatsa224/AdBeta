@@ -155,7 +155,7 @@ public class HoardingUpload extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                    // Log.d("SOMU", "uploading done uri "+ uri.toString());
-                                    Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
+                                    Upload upload = new Upload(mActv.getText().toString().trim(),
                                             mSize.getText().toString().trim(),
                                             mPrice.getText().toString().trim(),
                                             mMaplink.getText().toString().trim(),uri.toString());
