@@ -40,13 +40,13 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         Upload uploadCurrent = mUploads.get(position);
         if (uploadCurrent.getName() != null)
-            holder.textViewName.setText(uploadCurrent.getName());
+            holder.textViewName.setText("Location "+uploadCurrent.getName());
         if (uploadCurrent.getSize() != null)
-            holder.tvSize.setText(uploadCurrent.getSize());
+            holder.tvSize.setText("Size "+uploadCurrent.getSize());
         if (uploadCurrent.getPrice() != null)
-            holder.tvPrice.setText(uploadCurrent.getPrice());
+            holder.tvPrice.setText("Price in INR"+uploadCurrent.getPrice());
         if (uploadCurrent.getMaplink() != null){
-            holder.tvMaplink.setText(uploadCurrent.getMaplink());
+            holder.tvMaplink.setText("Map Link"+uploadCurrent.getMaplink());
             final String url = uploadCurrent.getMaplink();
             holder.tvMaplink.setOnClickListener(new View.OnClickListener() {
                 @Override
