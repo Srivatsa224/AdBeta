@@ -35,8 +35,8 @@ public class HoardingUpload extends AppCompatActivity {
 
     private Button mButtonChooseImage;
     private Button mButtonUpload;
-    private TextView mTextViewShowUploads;
-    private EditText mEditTextFileName;
+  //  private TextView mTextViewShowUploads;
+  //  private EditText mEditTextFileName;
     private EditText mSize;
     private EditText mPrice;
     private EditText mMaplink;
@@ -60,8 +60,8 @@ public class HoardingUpload extends AppCompatActivity {
 
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
-        mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
-        mEditTextFileName = findViewById(R.id.et_loc);
+       // mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
+     //   mEditTextFileName = findViewById(R.id.et_loc);
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
         mSize=findViewById(R.id.et_size);
@@ -89,12 +89,12 @@ public class HoardingUpload extends AppCompatActivity {
             }
         });
 
-        mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openImagesActivity();
-            }
-        });
+        //mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+         //       openImagesActivity();
+       //     }
+      //  });
         mActv = (AutoCompleteTextView)
                 findViewById(R.id.autocom);
 

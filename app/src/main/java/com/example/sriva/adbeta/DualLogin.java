@@ -26,7 +26,7 @@ public class DualLogin extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(DualLogin.this, BrandReg.class);
+                Intent i=new Intent(DualLogin.this, BrandSuccess.class);
                 startActivity(i);
             }
         });

@@ -42,8 +42,8 @@ public class DealerReg extends AppCompatActivity implements View.OnClickListener
 
         //if getCurrentUser does not returns null
         if(firebaseAuth.getCurrentUser() != null){
-            //User is already logged in so close this activity
-            finish();
+                //User is already logged in so close this activity
+                finish();
 
             //and open profile activity
             startActivity(new Intent(getApplicationContext(), DealerSuccess.class));

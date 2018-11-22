@@ -21,7 +21,8 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImagesActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
+public class ImagesActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener
+{
     private RecyclerView mRecyclerView;
     private ImageAdapter mAdapter;
 
@@ -88,9 +89,9 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
     }
 
     @Override
-    public void onWhatEverClick(int position) {
-        Toast.makeText(this, "Whatever click at position: " + position, Toast.LENGTH_SHORT).show();
-    }
+  public void onWhatEverClick(int position) {
+       Toast.makeText(this, "Whatever click at position: " + position, Toast.LENGTH_SHORT).show();
+   }
 
     @Override
     public void onDeleteClick(int position) {

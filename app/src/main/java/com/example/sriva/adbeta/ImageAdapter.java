@@ -67,8 +67,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                     .into(holder.imageView);
 
 
-        final String message = "Hi, We want to book this Ad Space at "+uploadCurrent.getName() +" of size "+uploadCurrent.getSize() +
-                "Which you have listed for "+uploadCurrent.getPrice() + "laocted at "+ uploadCurrent.getMaplink() + " this location." +
+        final String message = "Hi, We want to book this Ad Space at "+uploadCurrent.getName()
+                +" of size "+uploadCurrent.getSize() +
+                " which you have listed for INR "+uploadCurrent.getPrice()
+                + "located at "+ uploadCurrent.getMaplink() + " this location." +
                 "    Please Share the payment details" + ",Thank You.";
         final String emailaddress="srivatsa224@gmail.com";
         final String img= uploadCurrent.getImageUrl();
